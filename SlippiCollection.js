@@ -47,7 +47,7 @@ function getCharacter(id, colorId) {
     let icon = "";
     switch (id) {
         case 0:
-            name = "Captain Falcon";
+            name = "CaptainFalcon";
             icon = `${colorId}.png`;
             break;
         case 1:
@@ -59,7 +59,7 @@ function getCharacter(id, colorId) {
             icon = `${colorId}.png`;
             break;
         case 3:
-            name = "Mr. Game & Watch";
+            name = "Game&Watch";
             icon = `${colorId}.png`;
             break;
         case 4:
@@ -103,7 +103,7 @@ function getCharacter(id, colorId) {
             icon = `${colorId}.png`;
             break;
         case 14:
-            name = "Ice Climbers";
+            name = "IceClimbers";
             icon = `${colorId}.png`;
             break;
         case 15:
@@ -115,7 +115,7 @@ function getCharacter(id, colorId) {
             icon = `${colorId}.png`;
             break;
         case 17:
-            name = "Donkey Kong";
+            name = "DonkeyKong";
             icon = `${colorId}.png`;
             break;
         case 18:
@@ -131,11 +131,11 @@ function getCharacter(id, colorId) {
             icon = `${colorId}.png`;
             break;
         case 21:
-            name = "Young Link";
+            name = "YoungLink";
             icon = `${colorId}.png`;
             break;
         case 22:
-            name = "Dr. Mario";
+            name = "DrMario";
             icon = `${colorId}.png`;
             break;
         case 23:
@@ -159,94 +159,127 @@ function getCharacter(id, colorId) {
 
 function getStage(id) {
     let name = "";
+    let image = "";
     switch (id) {
         case 2:
             name = "Fountain of Dreams";
+            image = "FountainOfDreams.png";
             break;
         case 3:
             name = "Pokemon Stadium";
+            image = "PokemonStadium.png";
             break;
         case 4:
             name = "Princess Peach's Castle";
+            image = "PrincessPeachsCastle.jpg";
             break;
         case 5:
-            name = "Konga Jungle";
+            name = "Kongo Falls";
+            image = "KongoFalls.jpg";
             break;
         case 6:
             name = "Brinstar";
+            image = "Brinstar.jpg";
             break;
         case 7:
             name = "Corneria";
+            image = "Corneria.jpg";
             break;
         case 8:
             name = "Yoshi's Story";
+            image = "YoshisStory.png";
             break;
         case 9:
             name = "Onett";
+            image = "Onett.jpg";
             break;
         case 10:
             name = "Mute City";
+            image = "MuteCity.jpg";
             break;
         case 11:
             name = "Rainbow Cruise";
+            image = "RainbowCrusie.png";
             break;
         case 12:
             name = "Jungle Japes";
+            image = "JungleJapes.png";
             break;
         case 13:
             name = "Great Bay";
+            image = "GreatBay.jpg";
             break;
         case 14:
             name = "Temple";
+            image = "Temple.png";
             break;
         case 15:
             name = "Brinstar Depths";
+            image = "BrinstarDepths.jpg";
             break;
         case 16:
             name = "Yoshi's Island";
+            image = "YoshisIslandMelee.jpg";
             break;
         case 17:
             name = "Green Greens";
+            image = "GreenGreens.png";
             break;
         case 18:
             name = "Fourside";
+            image = "Fourside.png";
             break;
         case 19:
-            name = "Kingdom";
+            name = "Mushroom Kingdom";
+            image = "MushroomKingdom.png";
             break;
         case 20:
-            name = "Kingdom 2";
+            name = "Mushroom Kingdom 2";
+            image = "MushroomKingdom2.png";
             break;
         case 22:
             name = "Venom";
+            image = "Venom.png";
             break;
         case 23:
             name = "Poke Floats";
+            image = "PokeFloats.jpg";
             break;
         case 24:
             name = "Big Blue";
+            image = "BigBlue.jpg";
             break;
         case 25:
             name = "Icicle Mountain";
+            image = "IcicleMountain.jpg";
             break;
         case 27:
             name = "Flat Zone";
+            image = "FlatZone.png";
             break;
         case 28:
             name = "Dream Land";
+            image = "DreamLand.png";
             break;
         case 29:
-            name = "Yoshi's Island 2";
+            name = "Yoshi's Island";
+            image = "YoshisIsland.png";
             break;
         case 30:
-            name = "Kongo Jungle 2";
+            name = "Kongo Jungle";
+            image = "KongoJungle.png";
             break;
         case 31:
-            name = "BattleField";
+            name = "Battlefield";
+            image = "Battlefield.jpg";
             break;
         case 32:
             name = "Final Destination";
+            image = "FinalDestination.png";
             break;
     }
-    return name;
+    return obj = {
+        name: name,
+        image: image
+    };
 }
