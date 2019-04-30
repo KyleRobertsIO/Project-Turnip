@@ -10,12 +10,20 @@ const slippiPath = "C:/Users/kkrob/Desktop/FM-v5.9-Slippi-r18-Win/Slippi/";
         }
     });
 
-/*for(let i = 0; i < slippyFiles.length; i++){
+for(let i = 0; i < slippyFiles.length; i++){
     let path = slippiPath + slippyFiles[i];
     let data = SC.readSlippiSettings(path);
-    console.log(SC.getMatchStage(data));
+
+
+    let stats = SC.readSlippiStats(path);
+    //console.log(SC.getMatchWinner(stats));
+
+
+
+    //console.log(SC.getMatchStage(data));
     console.log(SC.getMatchCharcters(data));
-}*/
+    //console.log(data);
+}
 
 
 
@@ -35,9 +43,10 @@ const slippiPath = "C:/Users/kkrob/Desktop/FM-v5.9-Slippi-r18-Win/Slippi/";
 
 
 // Get computed stats - openings / kill, conversions, etc
-let game = new SlippiGame((slippiPath + slippyFiles[1]));
-const stats = game.getStats();
-console.log(stats.stocks);
+//let game = new SlippiGame((slippiPath + slippyFiles[1]));
+//const stats = game.getStats();
+//console.log(stats.stocks);
+
 
 // Get frames – animation state, inputs, etc
 // This is used to compute your own stats or get more frame-specific info (advanced)

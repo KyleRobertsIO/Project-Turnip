@@ -10,23 +10,37 @@ let slippiFiles = fs.readdirSync(slippiPath, function(err, files){
     }
 });
 
-for(let i = 0; i < slippiFiles.length; i++){
-    let data = SC.readSlippiSettings(slippiPath + slippiFiles[i]);
-    createMatch(data);
-}
 
-function createMatch(data){
+let fileCollection = [];
+for(let i = 0; i < slippiFiles.length; i++){
+    let filePath = slippiPath + slippiFiles[i];
+    let settings = SC.readSlippiSettings(slippiPath + slippiFiles[i]);
+    let stats = SC.readSlippiStats(filePath);
+    let winner = SC.getMatchWinner(stats);
+    createMatch(i, settings, winner);
+    fileCollection.push(filePath);
+}
+sessionStorage.setItem('fileCollection', JSON.stringify(fileCollection));
+
+
+function createMatch(matchId, data, winner){
     let matchContainer = document.createElement('div');
     let stage = SC.getMatchStage(data);
     matchContainer.style.backgroundImage = `url('../stages/${stage.image}')`;
     matchContainer.classList.add("match-container");
-    createPlayers(data, matchContainer);
-    createStatsButton(matchContainer);
+    createPlayers(data, winner, matchContainer);
+
+    let infoContainer = document.createElement('div');
+    infoContainer.classList.add('info-container');
+
+    createStatsButton(matchId, infoContainer);
+    createGameMode(data, infoContainer);
+
+    matchContainer.append(infoContainer);
     container.appendChild(matchContainer);
 }
 
-function createPlayers(data, matchContainer){
-    console.log(data);
+function createPlayers(data, winner, matchContainer){
     let characters = SC.getMatchCharcters(data);
     let playersContainer = document.createElement('div');
     playersContainer.classList.add('players-container');
@@ -39,18 +53,37 @@ function createPlayers(data, matchContainer){
             'src', `../stocks/${characters[i].name}/${characters[i].icon}`
         );
         stockIcon.classList.add('stock-icon');
+        if(winner == characters[i].playerIndex){
+            stockContainer.classList.add('match-winner');
+        }
         stockContainer.appendChild(stockIcon);
         playersContainer.appendChild(stockContainer);
     }
     matchContainer.appendChild(playersContainer);
 }
 
-function createStatsButton(matchContainer){
+function createStatsButton(matchId, infoContainer){
     let button = document.createElement('button');
     button.classList.add('stats-button');
+    button.setAttribute('value', matchId);
+    button.setAttribute('onclick', 'openMatchBreakdown(this)');
     let icon = document.createElement('img');
     icon.setAttribute('src', '../assets/icons/graph.svg');
     icon.classList.add('stats-button-icon');
     button.appendChild(icon);
-    matchContainer.appendChild(button);
+    infoContainer.appendChild(button);
+}
+
+function createGameMode(data, infoContainer){
+    let gamemodeTag = document.createElement('div');
+    gamemodeTag.classList.add('gamemode-tag');
+    let mode = SC.getGamemode(data);
+    let text = document.createTextNode(mode);
+    gamemodeTag.append(text);
+    infoContainer.append(gamemodeTag);
+}
+
+function openMatchBreakdown(elm){
+    sessionStorage.setItem('match-breakdown-index', elm.value);
+    window.location.assign('./match.html');
 }

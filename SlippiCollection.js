@@ -6,6 +6,11 @@ module.exports = {
         let settings = game.getSettings();
         return settings;
     },
+    readSlippiStats: function (path){
+        let game = new SlippiGame(path);
+        let stats = game.getStats();
+        return stats;
+    },
     getMatchCharcters: function (settings) {
         let characters = [];
         for (let i = 0; i < settings.players.length; i++) {
@@ -13,6 +18,7 @@ module.exports = {
             let colorId = settings.players[i].characterColor;
             let obj = getCharacter(id, colorId);
             let character = {
+                playerIndex: settings.players[i].playerIndex,
                 id: id,
                 port: settings.players[i].port,
                 name: obj.name,
@@ -39,7 +45,21 @@ module.exports = {
             }
         }
         return mode;
+    },
+    getMatchWinner: function(stats){
+        let winnerIndex = getWinnerId(stats.stocks);
+        return winnerIndex;
+    }   
+}
+
+function getWinnerId(stocks){
+    let winner = null;
+    for(let i = 0; i < stocks.length; i++){
+        if(stocks[i].deathAnimation == null){
+            winner = stocks[i].playerIndex;
+        }
     }
+    return winner;
 }
 
 function getCharacter(id, colorId) {
