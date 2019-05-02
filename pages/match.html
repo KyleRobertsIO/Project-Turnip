@@ -6,12 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Match</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/match.css">
 </head>
 
 <body>
+    <div id="frame-bar">
+        <img class="frame-icons" id="minimize-icon" src="../assets/icons/minimize.svg" />
+        <img class="frame-icons" id="maximize-icon" src="../assets/icons/maximize.svg" />
+        <img class="frame-icons" id="close-icon" src="../assets/icons/close.svg" />
+    </div>
+
     <div id="page-container">
-        <script src="../js/loadMatchStats.js"></script>
+
+        <div id="header-container">
+                <div id="stage-image-container"></div>
+                <div id="basic-results-container"></div>
+        </div>
+
     </div>
 </body>
+
+<script src="../js/loadMatchStats.js"></script>
 
 </html>
