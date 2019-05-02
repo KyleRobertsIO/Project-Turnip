@@ -71,11 +71,11 @@ function getCharacter(id, colorId) {
             icon = `${colorId}.png`;
             break;
         case 1:
-            name = "Yoshi";
+            name = "DonkeyKong";
             icon = `${colorId}.png`;
             break;
         case 2:
-            name = "Falco";
+            name = "Fox";
             icon = `${colorId}.png`;
             break;
         case 3:
@@ -83,7 +83,7 @@ function getCharacter(id, colorId) {
             icon = `${colorId}.png`;
             break;
         case 4:
-            name = "Samus";
+            name = "Kirby";
             icon = `${colorId}.png`;
             break;
         case 5:
@@ -95,11 +95,11 @@ function getCharacter(id, colorId) {
             icon = `${colorId}.png`;
             break;
         case 7:
-            name = "Mario";
+            name = "Luigi";
             icon = `${colorId}.png`;
             break;
         case 8:
-            name = "Luigi";
+            name = "Mario";
             icon = `${colorId}.png`;
             break;
         case 9:
@@ -131,11 +131,11 @@ function getCharacter(id, colorId) {
             icon = `${colorId}.png`;
             break;
         case 16:
-            name = "Kirby";
+            name = "Samus";
             icon = `${colorId}.png`;
             break;
         case 17:
-            name = "DonkeyKong";
+            name = "Yoshi";
             icon = `${colorId}.png`;
             break;
         case 18:
@@ -143,11 +143,11 @@ function getCharacter(id, colorId) {
             icon = `${colorId}.png`;
             break;
         case 19:
-            name = "Shiek";
+            name = "Sheik";
             icon = `${colorId}.png`;
             break;
         case 20:
-            name = "Fox";
+            name = "Falco";
             icon = `${colorId}.png`;
             break;
         case 21:

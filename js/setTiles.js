@@ -2,7 +2,7 @@ const fs = require('fs');
 let SC = require('../SlippiCollection.js');
 
 let container = document.getElementById('page-container');
-const slippiPath = "C:/Users/kkrob/Desktop/FM-v5.9-Slippi-r18-Win/Slippi/";
+const slippiPath = "C:/Users/Red Baron/Desktop/FM-v5.9-Slippi-r18-Win/Slippi/";
 
 let slippiFiles = fs.readdirSync(slippiPath, function(err, files){
     if(err){
