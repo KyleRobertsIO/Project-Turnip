@@ -1,4 +1,9 @@
+const fs = require('fs');
 const {remote} = require('electron');
+
+var appSettingsRaw = fs.readFileSync('./config.json');
+var appSettings = JSON.parse(appSettingsRaw);
+sessionStorage.setItem('APP_SETTINGS', JSON.stringify(appSettings));
 
 document.getElementById('minimize-icon').addEventListener('click', () => {
     let win = remote.getCurrentWindow();

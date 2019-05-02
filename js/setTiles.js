@@ -1,8 +1,9 @@
-const fs = require('fs');
 let SC = require('../SlippiCollection.js');
 
 let container = document.getElementById('page-container');
-const slippiPath = "C:/Users/Red Baron/Desktop/FM-v5.9-Slippi-r18-Win/Slippi/";
+let settingsJSON = JSON.parse(sessionStorage.getItem('APP_SETTINGS'));
+let slippiPath = settingsJSON.slippiPath;
+//const slippiPath = "C:/Users/Red Baron/Desktop/FM-v5.9-Slippi-r18-Win/Slippi/";
 
 let slippiFiles = fs.readdirSync(slippiPath, function(err, files){
     if(err){
@@ -10,25 +11,22 @@ let slippiFiles = fs.readdirSync(slippiPath, function(err, files){
     }
 });
 
-
 let fileCollection = [];
 for(let i = 0; i < slippiFiles.length; i++){
     let filePath = slippiPath + slippiFiles[i];
-    let settings = SC.readSlippiSettings(slippiPath + slippiFiles[i]);
-    let stats = SC.readSlippiStats(filePath);
-    let winner = SC.getMatchWinner(stats);
-    createMatch(i, settings, winner);
+    let settings = SC.readSlippiSettings(filePath);
+    createMatch(i, settings);
     fileCollection.push(filePath);
 }
 sessionStorage.setItem('fileCollection', JSON.stringify(fileCollection));
 
 
-function createMatch(matchId, data, winner){
+function createMatch(matchId, data){
     let matchContainer = document.createElement('div');
     let stage = SC.getMatchStage(data);
     matchContainer.style.backgroundImage = `url('../stages/${stage.image}')`;
     matchContainer.classList.add("match-container");
-    createPlayers(data, winner, matchContainer);
+    createPlayers(data, matchContainer);
 
     let infoContainer = document.createElement('div');
     infoContainer.classList.add('info-container');
@@ -40,7 +38,7 @@ function createMatch(matchId, data, winner){
     container.appendChild(matchContainer);
 }
 
-function createPlayers(data, winner, matchContainer){
+function createPlayers(data, matchContainer){
     let characters = SC.getMatchCharcters(data);
     let playersContainer = document.createElement('div');
     playersContainer.classList.add('players-container');
@@ -53,9 +51,6 @@ function createPlayers(data, winner, matchContainer){
             'src', `../stocks/${characters[i].name}/${characters[i].icon}`
         );
         stockIcon.classList.add('stock-icon');
-        if(winner == characters[i].playerIndex){
-            stockContainer.classList.add('match-winner');
-        }
         stockContainer.appendChild(stockIcon);
         playersContainer.appendChild(stockContainer);
     }
