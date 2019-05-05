@@ -3,7 +3,6 @@ let SC = require('../SlippiCollection.js');
 let container = document.getElementById('page-container');
 let settingsJSON = JSON.parse(sessionStorage.getItem('APP_SETTINGS'));
 let slippiPath = settingsJSON.slippiPath;
-//const slippiPath = "C:/Users/Red Baron/Desktop/FM-v5.9-Slippi-r18-Win/Slippi/";
 
 let slippiFiles = fs.readdirSync(slippiPath, function(err, files){
     if(err){

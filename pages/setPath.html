@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Set Path</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/setPath.css">
+</head>
+
+<body>
+
+    <div id="frame-bar">
+        <img class="frame-icons" id="minimize-icon" src="../assets/icons/minimize.svg" />
+        <img class="frame-icons" id="maximize-icon" src="../assets/icons/maximize.svg" />
+        <img class="frame-icons" id="close-icon" src="../assets/icons/close.svg" />
+    </div>
+
+    <script src="../js/renderer.js"></script>
+    <script src="../js/setFilePath.js"></script>
+
+    <div id="page-container">
+
+        <div id="dialog-container">
+
+            <div id="error-log">
+                <p id="error-message">
+                    Error: Path doesn't exist!
+                </p>
+            </div>
+
+            <h1 id="title">Slippi File Path:</h1>
+            <input id="path-input" type="text" placeholder="PATH" />
+            <button id="submit-path" onclick="submitPath()">Set Slippi Path</button>
+        </div>
+
+    </div>
+</body>
+
+</html>

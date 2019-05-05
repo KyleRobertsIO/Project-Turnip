@@ -1,9 +1,12 @@
 const fs = require('fs');
-const {remote} = require('electron');
+const { remote } = require('electron');
 
-var appSettingsRaw = fs.readFileSync('./config.json');
-var appSettings = JSON.parse(appSettingsRaw);
-sessionStorage.setItem('APP_SETTINGS', JSON.stringify(appSettings));
+if(sessionStorage.getItem('APP_SETTINGS') == null){
+    let configPath = `${__dirname}\\..\\config\\config.json`;
+    appSettingsRaw = fs.readFileSync(configPath);
+    var appSettings = JSON.parse(appSettingsRaw);
+    sessionStorage.setItem('APP_SETTINGS', JSON.stringify(appSettings));
+}
 
 document.getElementById('minimize-icon').addEventListener('click', () => {
     let win = remote.getCurrentWindow();
@@ -12,9 +15,9 @@ document.getElementById('minimize-icon').addEventListener('click', () => {
 
 document.getElementById('maximize-icon').addEventListener('click', () => {
     let win = remote.getCurrentWindow();
-    if(win.isMaximized()){
+    if (win.isMaximized()) {
         win.unmaximize();
-    }else{
+    } else {
         win.maximize();
     }
 });

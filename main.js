@@ -24,9 +24,10 @@ function createWindow () {
     }
   });
   win.setMenuBarVisibility(false);
-  win.loadFile('./pages/index.html');
-
-  win.webContents.openDevTools();
+  win.loadFile('./pages/setPath.html');
+  
+  win.maximize();
+  //win.webContents.openDevTools();
 
   win.on('closed', () => {
     win = null;
