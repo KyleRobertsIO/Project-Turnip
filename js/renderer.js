@@ -1,10 +1,11 @@
 const fs = require('fs');
 const { remote } = require('electron');
 
+var configPath = `${__dirname}\\..\\config\\config.json`;
+
 if(sessionStorage.getItem('APP_SETTINGS') == null){
-    let configPath = `${__dirname}\\..\\config\\config.json`;
     appSettingsRaw = fs.readFileSync(configPath);
-    var appSettings = JSON.parse(appSettingsRaw);
+    let appSettings = JSON.parse(appSettingsRaw);
     sessionStorage.setItem('APP_SETTINGS', JSON.stringify(appSettings));
 }
 
@@ -26,3 +27,7 @@ document.getElementById('close-icon').addEventListener('click', () => {
     let win = remote.getCurrentWindow();
     win.close();
 });
+
+function updateSession(appSettings){
+    sessionStorage.setItem("APP_SETTINGS", JSON.stringify(appSettings));
+}

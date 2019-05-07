@@ -1,6 +1,10 @@
 const os = require('os');
 
-if(appSettings.slippiPath != null && appSettings.slippiPath != ""){
+var appSettings = JSON.parse(sessionStorage.getItem('APP_SETTINGS'));
+
+if(appSettings.slippiPath != null && 
+    appSettings.slippiPath != "" &&
+     fs.existsSync(appSettings.slippiPath)){
     window.location.replace('./index.html');
 }
 
@@ -17,7 +21,8 @@ function submitPath(){
         appSettings.slippiPath = path;
         let settings = JSON.stringify(appSettings);
         fs.writeFileSync(configPath, settings);
-        window.location.replace('./index.html'); 
+        updateSession(appSettings);
+        //window.location.replace('./index.html'); 
     }else{
         let errorElm = document.getElementById('error-log');
         errorElm.style.display = "block";

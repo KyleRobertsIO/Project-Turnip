@@ -8,6 +8,7 @@
     grid-template-rows: auto;
     grid-gap: 20px;
     padding: 20px 40px 20px 40px;
+    height: 100%;
 }
 
 .match-container {
