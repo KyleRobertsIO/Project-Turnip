@@ -22,7 +22,7 @@ function submitPath(){
         let settings = JSON.stringify(appSettings);
         fs.writeFileSync(configPath, settings);
         updateSession(appSettings);
-        //window.location.replace('./index.html'); 
+        window.location.replace('./index.html'); 
     }else{
         let errorElm = document.getElementById('error-log');
         errorElm.style.display = "block";
