@@ -49,7 +49,18 @@ module.exports = {
     getMatchWinner: function(stats){
         let winnerIndex = getWinnerId(stats.stocks);
         return winnerIndex;
-    }   
+    },   
+    getKillCounts: function(stats){
+        let kills = [];
+        for(let i = 0; i < stats.overall.length; i++){
+            let kill = {
+                playerIndex: stats.overall[i].playerIndex,
+                kills: stats.overall[i].killCount
+            }
+            kills.push(kill);
+        }
+        return kills;
+    }
 }
 
 function getWinnerId(stocks){

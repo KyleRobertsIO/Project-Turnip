@@ -2,7 +2,7 @@ const { default: SlippiGame } = require('slp-parser-js');
 const fs = require('fs');
 let SC = require('../SlippiCollection.js');
 
-const slippiPath = "C:/Users/Red Baron/Desktop/FM-v5.9-Slippi-r18-Win/Slippi/";
+const slippiPath = "C:\\Users\\kkrob\\Desktop\\FM-v5.9-Slippi-r18-Win\\Slippi\\";
 
     var slippyFiles = fs.readdirSync(slippiPath, function(err, files){
         if(err){
@@ -10,7 +10,7 @@ const slippiPath = "C:/Users/Red Baron/Desktop/FM-v5.9-Slippi-r18-Win/Slippi/";
         }
     });
 
-for(let i = 0; i < slippyFiles.length; i++){
+for(let i = 1; i <  2/*slippyFiles.length*/; i++){
     let path = slippiPath + slippyFiles[i];
     let data = SC.readSlippiSettings(path);
 
@@ -21,8 +21,8 @@ for(let i = 0; i < slippyFiles.length; i++){
 
 
     //console.log(SC.getMatchStage(data));
-    console.log(SC.getMatchCharcters(data));
-    //console.log(data);
+    //console.log(SC.getMatchCharcters(data));
+    console.log(stats);
 }
 
 

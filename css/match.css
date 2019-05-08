@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 #header-container{
     width: 100%;
     height: calc(50vh - 29px);
@@ -5,7 +7,7 @@
 }
 
 #stage-image-container{
-    width: 50%;
+    flex-basis: 50%;
     padding: 30px 0px 0px 0px;
     background-image: url('../stages/DreamLand.png');
     background-size: cover;
@@ -33,5 +35,54 @@
 
 #basic-results-container{
     background-color: #444;
-    width: 50%;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.basic-character-stats{
+    padding: 20px;
+    width: calc(100% - 40px);
+    flex-basis: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#basic-player-1, #basic-player-3{
+    background-color: #444;
+}
+
+#basic-player-2, #basic-player-4{
+    background-color: #222;
+}
+
+.stock-icon-basic-container{
+    width: 40px;
+    height: 40px;
+    margin: 0px 60px 0px 0px;
+}
+
+.basic-stock-icon{
+    width: 100%;
+    height: 100%;
+}
+
+.basic-stat-icons{
+    width: 40px;
+    height: 40px;
+    margin: 0px 20px 0px 0px;
+}
+
+.basic-kills-value{
+    min-width: 40px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bolder;
+    text-rendering: optimizeLegibility;
+    margin: 0px 60px 0px 0px;
 }
