@@ -52,14 +52,33 @@ module.exports = {
     },   
     getKillCounts: function(stats){
         let kills = [];
-        for(let i = 0; i < stats.overall.length; i++){
-            let kill = {
-                playerIndex: stats.overall[i].playerIndex,
-                kills: stats.overall[i].killCount
+        if(stats.overall.length != 0){
+            for(let i = 0; i < stats.overall.length; i++){
+                let kill = {
+                    playerIndex: stats.overall[i].playerIndex,
+                    kills: stats.overall[i].killCount
+                }
+                kills.push(kill);
             }
-            kills.push(kill);
+        }else{
+            kills = null;
         }
         return kills;
+    },
+    getPercentageDone: function(stats){
+        let percentages = [];
+        if(stats.overall.length != 0){
+            for(let i = 0; i < stats.overall.length; i++){
+                let percent = {
+                    playerIndex: stats.overall[i].playerIndex,
+                    percent_done: Math.round(stats.overall[i].totalDamage)
+                }
+                percentages.push(percent);
+            }
+        }else{
+            percentages = null;
+        }
+        return percentages;
     }
 }
 

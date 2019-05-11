@@ -9,10 +9,11 @@ let stats = SC.readSlippiStats(filePath);
 
 let characters = SC.getMatchCharcters(settings);
 let matchKills = SC.getKillCounts(stats);
+let matchDamageDone = SC.getPercentageDone(stats);
 
 let headerLeft = document.getElementById('stage-image-container');
 setCharacterIcons(characters, headerLeft);
-setBasicInformation(characters, matchKills);
+setBasicInformation(characters, matchKills, matchDamageDone);
 
 function setCharacterIcons(characters, container){
     for(let i = 0; i < characters.length; i++){
@@ -26,7 +27,7 @@ function setCharacterIcons(characters, container){
     }
 }
 
-function setBasicInformation(characters, matchKills){
+function setBasicInformation(characters, matchKills, matchDamageDone){
     for(let i = 0; i < characters.length; i++){
         let stockContainer = document.getElementById(`basic-character-${(i + 1)}`);
         let stockIcon = document.createElement("img");
@@ -35,6 +36,17 @@ function setBasicInformation(characters, matchKills){
         stockContainer.appendChild(stockIcon);
 
         let killValue = document.getElementById(`basic-kills-player-${(i + 1)}`);
-        killValue.innerText = matchKills[i].kills;
+        if(matchKills != null){
+            killValue.innerText = matchKills[i].kills;
+        }else{
+            killValue.innerText = 0;
+        }
+
+        let percentValue = document.getElementById(`basic-percent-player-${(i + 1)}`);
+        if(matchDamageDone != null){
+            percentValue.innerText = matchDamageDone[i].percent_done;
+        }else{
+            percentValue.innerText = 0;
+        }
     }
 }
