@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "slp-parser-js": "^2.4.0"
+    "slp-parser-js": "^2.5.0"
   },
   "devDependencies": {
     "asar": "^2.0.1",
