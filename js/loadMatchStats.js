@@ -7,13 +7,23 @@ let filePath = fileCollection[index];
 let settings = SC.readSlippiSettings(filePath);
 let stats = SC.readSlippiStats(filePath);
 
+let stageImage = SC.getMatchStage(settings);
 let characters = SC.getMatchCharcters(settings);
 let matchKills = SC.getKillCounts(stats);
 let matchDamageDone = SC.getPercentageDone(stats);
 
+
 let headerLeft = document.getElementById('stage-image-container');
+setStageBackground(stageImage.image, headerLeft);
 setCharacterIcons(characters, headerLeft);
 setBasicInformation(characters, matchKills, matchDamageDone);
+
+
+
+function setStageBackground(image, container){
+    let path = `../stages/${image}`;
+    container.style.backgroundImage = path;
+}
 
 function setCharacterIcons(characters, container){
     for(let i = 0; i < characters.length; i++){
