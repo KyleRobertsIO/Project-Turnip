@@ -12,14 +12,14 @@ let characters = SC.getMatchCharcters(settings);
 let matchKills = SC.getKillCounts(stats);
 let matchDamageDone = SC.getPercentageDone(stats);
 let winner = SC.getMatchWinner(stats);
-console.log(winner);
 
 let headerLeft = document.getElementById('stage-image-container');
 setStageBackground(stageImage.image, headerLeft);
 setCharacterIcons(characters, headerLeft, winner);
 setBasicInformation(characters, matchKills, matchDamageDone);
 
-
+//Remove load
+document.getElementById("page-loading-display").style.display = "none";
 
 function setStageBackground(image, container){
     let path = `url('../stages/${image}')`;

@@ -22,3 +22,20 @@
 #navigation-container{
     width: 100%;
 }
+
+#frame-brand-container{
+    display: flex;
+    margin-right: auto;
+}
+
+#frame-brand-title{
+    font-size: 15px;
+    padding: 7px 5px;
+    font-family: Impact, sans-serif;
+}
+
+#frame-brand-icon{
+    width: 15px;
+    height: 15px;
+    padding: 7px 5px;
+}
