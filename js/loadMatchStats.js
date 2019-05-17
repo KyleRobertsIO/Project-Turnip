@@ -11,21 +11,22 @@ let stageImage = SC.getMatchStage(settings);
 let characters = SC.getMatchCharcters(settings);
 let matchKills = SC.getKillCounts(stats);
 let matchDamageDone = SC.getPercentageDone(stats);
-
+let winner = SC.getMatchWinner(stats);
+console.log(winner);
 
 let headerLeft = document.getElementById('stage-image-container');
 setStageBackground(stageImage.image, headerLeft);
-setCharacterIcons(characters, headerLeft);
+setCharacterIcons(characters, headerLeft, winner);
 setBasicInformation(characters, matchKills, matchDamageDone);
 
 
 
 function setStageBackground(image, container){
-    let path = `../stages/${image}`;
+    let path = `url('../stages/${image}')`;
     container.style.backgroundImage = path;
 }
 
-function setCharacterIcons(characters, container){
+function setCharacterIcons(characters, container, winner){
     for(let i = 0; i < characters.length; i++){
         let icon = document.createElement('img');
         icon.setAttribute('src', `../stocks/${characters[i].name}/${characters[i].icon}`);
@@ -33,6 +34,11 @@ function setCharacterIcons(characters, container){
         let iconContainer = document.createElement('div');
         iconContainer.classList.add('character-icon-container');
         iconContainer.appendChild(icon);
+        if((winner) === i){
+            iconContainer.classList.add("winner-icon-container");
+        }else{
+            iconContainer.classList.add("loser-icon-container");
+        }
         container.appendChild(iconContainer);
     }
 }
