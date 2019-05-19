@@ -80,161 +80,165 @@ module.exports = {
         }
         return percentages;
     },
-    getMoveInfo: function(moveId){
+    getMoveInfo: function (moveId) {
         const moves = {
             1: {
-              // This includes all thrown items, zair, luigi's taunt, samus bombs, etc
-              id: 1,
-              name: "Miscellaneous",
-              shortName: "misc",
+                // This includes all thrown items, zair, luigi's taunt, samus bombs, etc
+                id: 1,
+                name: "Miscellaneous",
+                shortName: "misc",
             },
             2: {
-              id: 2,
-              name: "Jab",
-              shortName: "jab",
+                id: 2,
+                name: "Jab",
+                shortName: "jab",
             },
             3: {
-              id: 3,
-              name: "Jab",
-              shortName: "jab",
+                id: 3,
+                name: "Jab",
+                shortName: "jab",
             },
             4: {
-              id: 4,
-              name: "Jab",
-              shortName: "jab",
+                id: 4,
+                name: "Jab",
+                shortName: "jab",
             },
             5: {
-              id: 5,
-              name: "Rapid Jabs",
-              shortName: "rapid-jabs",
+                id: 5,
+                name: "Rapid Jabs",
+                shortName: "rapid-jabs",
             },
             6: {
-              id: 6,
-              name: "Dash Attack",
-              shortName: "dash",
+                id: 6,
+                name: "Dash Attack",
+                shortName: "dash",
             },
             7: {
-              id: 7,
-              name: "Forward Tilt",
-              shortName: "ftilt",
+                id: 7,
+                name: "Forward Tilt",
+                shortName: "ftilt",
             },
             8: {
-              id: 8,
-              name: "Up Tilt",
-              shortName: "utilt",
+                id: 8,
+                name: "Up Tilt",
+                shortName: "utilt",
             },
             9: {
-              id: 9,
-              name: "Down Tilt",
-              shortName: "dtilt",
+                id: 9,
+                name: "Down Tilt",
+                shortName: "dtilt",
             },
             10: {
-              id: 10,
-              name: "Forward Smash",
-              shortName: "fsmash",
+                id: 10,
+                name: "Forward Smash",
+                shortName: "fsmash",
             },
             11: {
-              id: 11,
-              name: "Up Smash",
-              shortName: "usmash",
+                id: 11,
+                name: "Up Smash",
+                shortName: "usmash",
             },
             12: {
-              id: 12,
-              name: "Down Smash",
-              shortName: "dsmash",
+                id: 12,
+                name: "Down Smash",
+                shortName: "dsmash",
             },
             13: {
-              id: 13,
-              name: "Neutral Air",
-              shortName: "nair",
+                id: 13,
+                name: "Neutral Air",
+                shortName: "nair",
             },
             14: {
-              id: 14,
-              name: "Forward Air",
-              shortName: "fair",
+                id: 14,
+                name: "Forward Air",
+                shortName: "fair",
             },
             15: {
-              id: 15,
-              name: "Back Air",
-              shortName: "bair",
+                id: 15,
+                name: "Back Air",
+                shortName: "bair",
             },
             16: {
-              id: 16,
-              name: "Up Air",
-              shortName: "uair",
+                id: 16,
+                name: "Up Air",
+                shortName: "uair",
             },
             17: {
-              id: 17,
-              name: "Down Air",
-              shortName: "dair",
+                id: 17,
+                name: "Down Air",
+                shortName: "dair",
             },
             18: {
-              id: 18,
-              name: "Neutral B",
-              shortName: "neutral-b",
+                id: 18,
+                name: "Neutral B",
+                shortName: "neutral-b",
             },
             19: {
-              id: 19,
-              name: "Side B",
-              shortName: "side-b",
+                id: 19,
+                name: "Side B",
+                shortName: "side-b",
             },
             20: {
-              id: 20,
-              name: "Up B",
-              shortName: "up-b",
+                id: 20,
+                name: "Up B",
+                shortName: "up-b",
             },
             21: {
-              id: 21,
-              name: "Down B",
-              shortName: "down-b",
+                id: 21,
+                name: "Down B",
+                shortName: "down-b",
             },
             50: {
-              id: 50,
-              name: "Getup Attack",
-              shortName: "getup",
+                id: 50,
+                name: "Getup Attack",
+                shortName: "getup",
             },
             51: {
-              id: 51,
-              name: "Getup Attack (Slow)",
-              shortName: "getup-slow",
+                id: 51,
+                name: "Getup Attack (Slow)",
+                shortName: "getup-slow",
             },
             52: {
-              id: 52,
-              name: "Grab Pummel",
-              shortName: "pummel",
+                id: 52,
+                name: "Grab Pummel",
+                shortName: "pummel",
             },
             53: {
-              id: 53,
-              name: "Forward Throw",
-              shortName: "fthrow",
+                id: 53,
+                name: "Forward Throw",
+                shortName: "fthrow",
             },
             54: {
-              id: 54,
-              name: "Back Throw",
-              shortName: "bthrow",
+                id: 54,
+                name: "Back Throw",
+                shortName: "bthrow",
             },
             55: {
-              id: 55,
-              name: "Up Throw",
-              shortName: "uthrow",
+                id: 55,
+                name: "Up Throw",
+                shortName: "uthrow",
             },
             56: {
-              id: 56,
-              name: "Down Throw",
-              shortName: "dthrow",
+                id: 56,
+                name: "Down Throw",
+                shortName: "dthrow",
             },
             61: {
-              id: 61,
-              name: "Edge Attack (Slow)",
-              shortName: "edge-slow",
+                id: 61,
+                name: "Edge Attack (Slow)",
+                shortName: "edge-slow",
             },
             62: {
-              id: 62,
-              name: "Edge Attack",
-              shortName: "edge",
+                id: 62,
+                name: "Edge Attack",
+                shortName: "edge",
             },
-          };
+        };
         return moves[moveId];
+    },
+    getMatchConversions: function (stats) {
+        let match = createMatchConversions(stats);
+        return match;
     }
 }
 
@@ -516,4 +520,80 @@ function getStage(id) {
         name: name,
         image: image
     };
+}
+
+function createMatchConversions(stats) {
+
+
+    function damageDoneToPlayerInStock(stockConversions) {
+        stockDamage = 0;
+        stockConversions.forEach(index => {
+            stockDamage += index.damage_done;
+        });
+        return stockDamage;
+    }
+
+    /* Package a conversion to be applied to a opponents stock */
+    function createConversion(conversionObj) {
+        let moveArray = [];
+        let moveIdArray = conversionObj.moves;
+        moveIdArray.forEach(index => {
+            let move = SC.getMoveInfo(index.moveId);
+            moveArray.push(move.name);
+        });
+    
+        let conversion = {
+            opponentIndex: conversionObj.opponentIndex,
+            openning: conversionObj.openingType,
+            damage_done: conversionObj.endPercent - conversionObj.startPercent,
+            statPercent: conversionObj.startPercent,
+            endPercent: conversionObj.endPercent,
+            didKill: conversionObj.didKill,
+            moves: moveArray,
+        }
+        return conversion;
+    }
+    var match = {
+        player1: {
+            stocks: []
+        },
+        player2: {
+            stocks: []
+        },
+        player3: {
+            stocks: []
+        },
+        player4: {
+            stocks: []
+        }
+    };
+    var convo = stats.conversions;
+    var conversions = [];
+
+    /* Push conversions in opponent stocks that a player interacted with */
+    for (let i = 0; i < convo.length; i++) {
+        conversions.push(createConversion(convo[i]));
+        if (convo[i].didKill || i == (convo.length - 1)) {
+            let stockObj = {
+                damage_done: damageDoneToPlayerInStock(conversions),
+                conversions: conversions
+            }
+            switch (convo[i].playerIndex) {
+                case 0:
+                    match.player1.stocks.push(stockObj);
+                    break;
+                case 1:
+                    match.player2.stocks.push(stockObj);
+                    break;
+                case 2:
+                    match.player3.stocks.push(stockObj);
+                    break;
+                case 3:
+                    match.player4.stocks.push(stockObj);
+                    break;
+            }
+            conversions = [];
+        }
+    }
+    return match;
 }

@@ -2,7 +2,7 @@ const { default: SlippiGame } = require('slp-parser-js');
 const fs = require('fs');
 let SC = require('../SlippiCollection.js');
 
-const slippiPath = "C:\\Users\\Red Baron\\Desktop\\FM-v5.9-Slippi-r18-Win\\Slippi\\";
+const slippiPath = "C:\\Users\\kkrob\\Desktop\\FM-v5.9-Slippi-r18-Win\\Slippi\\";
 
     var slippyFiles = fs.readdirSync(slippiPath, function(err, files){
         if(err){

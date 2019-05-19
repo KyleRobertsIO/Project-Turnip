@@ -13,6 +13,10 @@ let matchKills = SC.getKillCounts(stats);
 let matchDamageDone = SC.getPercentageDone(stats);
 let winner = SC.getMatchWinner(stats);
 
+
+console.log(SC.getMatchConversions(stats));
+
+
 let headerLeft = document.getElementById('stage-image-container');
 setStageBackground(stageImage.image, headerLeft);
 setCharacterIcons(characters, headerLeft, winner);

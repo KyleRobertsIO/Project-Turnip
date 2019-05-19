@@ -17,6 +17,7 @@ for(let i = 0; i < slippiFiles.length; i++){
     createMatch(i, settings);
     fileCollection.push(filePath);
 }
+document.getElementById("page-loading-display").style.display = "none";
 sessionStorage.setItem('fileCollection', JSON.stringify(fileCollection));
 
 
