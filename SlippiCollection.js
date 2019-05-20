@@ -544,7 +544,7 @@ function createMatchConversions(stats) {
     
         let conversion = {
             opponentIndex: conversionObj.opponentIndex,
-            openning: conversionObj.openingType,
+            opening: conversionObj.openingType,
             damage_done: conversionObj.endPercent - conversionObj.startPercent,
             statPercent: conversionObj.startPercent,
             endPercent: conversionObj.endPercent,

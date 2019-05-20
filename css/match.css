@@ -126,3 +126,44 @@
 .basic-percent-value{
     margin: 0px;
 }
+
+
+
+
+
+#main-data-container{
+    padding: 30px 40px;
+}
+
+.player-data-container{
+    background-color: #222;
+    padding: 20px 30px;
+}
+
+.player-slot-container{
+    display: flex;
+    align-items: center;
+}
+
+.slot-icon{
+    width: 30px;
+    height: 30px;
+    margin: 0px 20px 0px 0px;
+}
+
+.slot-title{
+    font-size: 30px;
+    font-weight: bolder;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.conversion-move-list{
+    margin: 0px 0px 0px 20px;
+}
+
+.stock-conversions hr{
+    background-color: #fff;
+    border: none;
+    height: 2px;
+}
