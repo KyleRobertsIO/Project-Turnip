@@ -140,6 +140,12 @@
     padding: 20px 30px;
 }
 
+.player-data-container hr{
+    height: 2px;
+    border: none;
+    background-color: #fff;
+}
+
 .player-slot-container{
     display: flex;
     align-items: center;
@@ -158,12 +164,49 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.stock-conversions{
+    display: flex;
+    padding: 10px 20px;
+}
+
+.conversion{
+    background-color: #333;
+    padding: 10px 20px;
+    margin: 10px 10px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.conversion-opening-label{
+    text-transform: capitalize;
+    font-weight: bolder;
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+}
+
+.moves-list-title{
+    margin: 0px 0px 5px 0px;
+}
+
 .conversion-move-list{
     margin: 0px 0px 0px 20px;
 }
 
-.stock-conversions hr{
-    background-color: #fff;
-    border: none;
-    height: 2px;
+.conversion-damage-label{
+    text-align: center;
+    margin: 20px 0px 0px 0px;
+    font-weight: bolder;
+    font-size: 20px;
+    background-color: #fb1a1a;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.ko-label{
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0px 0px 0px;
+    font-weight: bolder;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, #ff0000, rgb(251, 157, 16));
 }

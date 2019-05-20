@@ -29,9 +29,10 @@ document.getElementById("page-loading-display").style.display = "none";
 
 
 
-
-
-
+function removeDash(string) {
+    string = string.replace("-", " ");
+    return string;
+}
 
 function setStageBackground(image, container) {
     let path = `url('../stages/${image}')`;
@@ -94,7 +95,8 @@ function createConversionsList(match) {
             conversionContainer.classList.add("conversion");
 
             let conversionOpening = document.createElement('h2');
-            let openingText = document.createTextNode(index.opening);
+            conversionOpening.classList.add("conversion-opening-label");
+            let openingText = document.createTextNode(removeDash(index.opening));
             conversionOpening.appendChild(openingText);
             conversionContainer.appendChild(conversionOpening);
 
@@ -112,18 +114,26 @@ function createConversionsList(match) {
                 moveList.appendChild(moveListing);
             });
             conversionContainer.appendChild(moveList);
-            
+
 
             let damgageDoneLabel = document.createElement('h2');
+            damgageDoneLabel.classList.add("conversion-damage-label");
             let damageText = document.createTextNode(`${Math.round(index.damage_done)}%`);
             damgageDoneLabel.appendChild(damageText);
             conversionContainer.appendChild(damgageDoneLabel);
 
+            if (index.didKill) {
+                let koLabel = document.createElement('h2');
+                koLabel.classList.add("ko-label");
+                koLabel.appendChild(document.createTextNode("K.O."));
+                conversionContainer.appendChild(koLabel);
+            }
+
             indexContainer.appendChild(conversionContainer);
 
         });
-        let hr = document.createElement("hr");
-        indexContainer.appendChild(hr);
         container.appendChild(indexContainer);
+        let hr = document.createElement("hr");
+        container.appendChild(hr);
     }
 }
