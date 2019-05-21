@@ -539,7 +539,11 @@ function createMatchConversions(stats) {
         let moveIdArray = conversionObj.moves;
         moveIdArray.forEach(index => {
             let move = SC.getMoveInfo(index.moveId);
-            moveArray.push(move.name);
+            if(move == undefined){
+                moveArray.push("Unknown");
+            }else{
+                moveArray.push(move.name);
+            }
         });
     
         let conversion = {

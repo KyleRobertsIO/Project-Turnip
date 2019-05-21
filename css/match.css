@@ -171,14 +171,17 @@
 }
 
 .opponent-icon-container{
-    
+    margin: 20px 0px 0px 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #111;
 }
 
 .opponent-icon{
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     padding: 10px;
-    margin: 10px;
 }
 
 .stock-conversions{
