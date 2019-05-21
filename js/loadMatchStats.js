@@ -23,7 +23,7 @@ setCharacterIcons(characters, headerLeft, winner);
 setBasicInformation(characters, matchKills, matchDamageDone);
 
 setConversionTables(characters);
-createConversionsList(conversions);
+createConversionsList(conversions, characters);
 
 //Remove load
 document.getElementById("page-loading-display").style.display = "none";
@@ -82,68 +82,91 @@ function setBasicInformation(characters, matchKills, matchDamageDone) {
     }
 }
 
-function createConversionsList(match) {
+function createConversionsList(match, characters) {
     let container = document.getElementById("player1-conversions-list");
     let stocks = match.player1.stocks;
 
-    // Loop through a players stock interactions
-    for (let i = 0; i < stocks.length; i++) {
-        let indexContainer = document.createElement('div');
-        indexContainer.classList.add("stock-conversions");
-        // Loop through conversions for each stock interaction
-        stocks[i].conversions.forEach(index => {
-            let conversionContainer = document.createElement('div');
-            conversionContainer.classList.add("conversion");
+    setPlayerConversions(container, stocks);
+    container = document.getElementById("player3-conversions-list");
+    stocks = match.player3.stocks;
+    setPlayerConversions(container, stocks);
 
-            let conversionOpening = document.createElement('h2');
-            conversionOpening.classList.add("conversion-opening-label");
-            let openingText = document.createTextNode(removeDash(index.opening));
-            conversionOpening.appendChild(openingText);
-            conversionContainer.appendChild(conversionOpening);
 
-            let movesTitle = document.createElement("h2");
-            movesTitle.classList.add("moves-list-title");
-            movesTitle.appendChild(document.createTextNode("Moves Used:"));
-            conversionContainer.appendChild(movesTitle);
-            let moveList = document.createElement("ul");
-            moveList.classList.add("conversion-move-list");
-            // Create a move list for a conversion
-            index.moves.forEach(move => {
-                let moveListing = document.createElement("li");
-                let moveName = document.createTextNode(move);
-                moveListing.appendChild(moveName);
-                moveList.appendChild(moveListing);
+    function setPlayerConversions(container, stocks) {
+        // Loop through a players stock interactions
+        for (let i = 0; i < stocks.length; i++) {
+            let indexContainer = document.createElement('div');
+            indexContainer.classList.add("stock-conversions");
+
+            // Loop through conversions for each stock interaction
+            stocks[i].conversions.forEach(index => {
+                let conversionContainer = document.createElement('div');
+                conversionContainer.classList.add("conversion");
+
+                let conversionOpening = document.createElement('h2');
+                conversionOpening.classList.add("conversion-opening-label");
+                let openingText = document.createTextNode(removeDash(index.opening));
+                conversionOpening.appendChild(openingText);
+                conversionContainer.appendChild(conversionOpening);
+
+                let movesTitle = document.createElement("h2");
+                movesTitle.classList.add("moves-list-title");
+                movesTitle.appendChild(document.createTextNode("Moves Used:"));
+                conversionContainer.appendChild(movesTitle);
+                let moveList = document.createElement("ul");
+                moveList.classList.add("conversion-move-list");
+                // Create a move list for a conversion
+                index.moves.forEach(move => {
+                    let moveListing = document.createElement("li");
+                    let moveName = document.createTextNode(move);
+                    moveListing.appendChild(moveName);
+                    moveList.appendChild(moveListing);
+                });
+                conversionContainer.appendChild(moveList);
+
+
+                let damgageDoneLabel = document.createElement('h2');
+                damgageDoneLabel.classList.add("conversion-damage-label");
+                let damageText = document.createTextNode(`${Math.round(index.damage_done)}%`);
+                damgageDoneLabel.appendChild(damageText);
+                conversionContainer.appendChild(damgageDoneLabel);
+
+                if (index.didKill) {
+                    let koLabel = document.createElement('h2');
+                    koLabel.classList.add("ko-label");
+                    koLabel.appendChild(document.createTextNode("K.O."));
+                    conversionContainer.appendChild(koLabel);
+                }
+
+                indexContainer.appendChild(conversionContainer);
+
             });
-            conversionContainer.appendChild(moveList);
 
-
-            let damgageDoneLabel = document.createElement('h2');
-            damgageDoneLabel.classList.add("conversion-damage-label");
-            let damageText = document.createTextNode(`${Math.round(index.damage_done)}%`);
-            damgageDoneLabel.appendChild(damageText);
-            conversionContainer.appendChild(damgageDoneLabel);
-
-            if (index.didKill) {
-                let koLabel = document.createElement('h2');
-                koLabel.classList.add("ko-label");
-                koLabel.appendChild(document.createTextNode("K.O."));
-                conversionContainer.appendChild(koLabel);
+            let opponentIconContainer = document.createElement("div");
+            opponentIconContainer.classList.add("opponent-icon-container");
+            let opponentIcon = document.createElement("img");
+            opponentIcon.classList.add("opponent-icon");
+            let opponent;
+            for (let j = 0; j < characters.length; j++) {
+                if (stocks[i].opponentIndex == characters[j].playerIndex) {
+                    opponent = characters[j];
+                }
             }
+            opponentIcon.setAttribute("src", `../stocks/${opponent.name}/${opponent.icon}`);
+            opponentIconContainer.appendChild(opponentIcon);
+            container.appendChild(opponentIconContainer);
 
-            indexContainer.appendChild(conversionContainer);
-
-        });
-        container.appendChild(indexContainer);
-        let hr = document.createElement("hr");
-        container.appendChild(hr);
+            container.appendChild(indexContainer);
+            let hr = document.createElement("hr");
+            container.appendChild(hr);
+        }
     }
 }
 
-function setConversionTables(characters){
+function setConversionTables(characters) {
     let container = document.getElementById("main-data-container");
 
-    for(let i = 0; i < characters.length; i++){
-        console.log(characters[i]);
+    for (let i = 0; i < characters.length; i++) {
         let port = characters[i].port;
 
         let playerContainer = document.createElement("div");
@@ -157,7 +180,7 @@ function setConversionTables(characters){
         slotIcon.classList.add("slot-icon");
         slotIcon.setAttribute("id", `slot-icon-${port}`);
         playerSlot.appendChild(slotIcon);
-        
+
         let slotTitle = document.createElement("h1");
         slotTitle.classList.add("slot-title");
         slotTitle.setAttribute("id", `slot-title-${port}`);

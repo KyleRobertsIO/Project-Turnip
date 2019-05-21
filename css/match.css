@@ -152,30 +152,46 @@
 .player-slot-container{
     display: flex;
     align-items: center;
+    padding: 15px 20px 15px 20px;
+    background-color: #111;
+    border-radius: 50px;
 }
 
 .slot-icon{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     margin: 0px 20px 0px 0px;
 }
 
 .slot-title{
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bolder;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
 }
 
+.opponent-icon-container{
+    
+}
+
+.opponent-icon{
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin: 10px;
+}
+
 .stock-conversions{
     display: flex;
     padding: 10px 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .conversion{
     background-color: #333;
     padding: 10px 20px;
-    margin: 10px 10px;
+    margin: 10px;
     border-radius: 5px;
     font-family: 'Montserrat', sans-serif;
 }

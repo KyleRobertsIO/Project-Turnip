@@ -575,6 +575,7 @@ function createMatchConversions(stats) {
         conversions.push(createConversion(convo[i]));
         if (convo[i].didKill || i == (convo.length - 1)) {
             let stockObj = {
+                opponentIndex: convo[i].opponentIndex,
                 damage_done: damageDoneToPlayerInStock(conversions),
                 conversions: conversions
             }
