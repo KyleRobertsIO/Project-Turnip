@@ -138,6 +138,9 @@
 .player-data-container{
     background-color: #222;
     padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 0px 3px 3px #000;
+    margin: 0px 0px 50px 0px;
 }
 
 .player-data-container hr{
@@ -209,4 +212,5 @@
     font-weight: bolder;
     text-align: center;
     background-image: linear-gradient(to bottom right, #ff0000, rgb(251, 157, 16));
+    letter-spacing: 2px;
 }

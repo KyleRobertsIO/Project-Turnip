@@ -21,6 +21,8 @@ let headerLeft = document.getElementById('stage-image-container');
 setStageBackground(stageImage.image, headerLeft);
 setCharacterIcons(characters, headerLeft, winner);
 setBasicInformation(characters, matchKills, matchDamageDone);
+
+setConversionTables(characters);
 createConversionsList(conversions);
 
 //Remove load
@@ -86,7 +88,6 @@ function createConversionsList(match) {
 
     // Loop through a players stock interactions
     for (let i = 0; i < stocks.length; i++) {
-        console.log(stocks[i]);
         let indexContainer = document.createElement('div');
         indexContainer.classList.add("stock-conversions");
         // Loop through conversions for each stock interaction
@@ -135,5 +136,42 @@ function createConversionsList(match) {
         container.appendChild(indexContainer);
         let hr = document.createElement("hr");
         container.appendChild(hr);
+    }
+}
+
+function setConversionTables(characters){
+    let container = document.getElementById("main-data-container");
+
+    for(let i = 0; i < characters.length; i++){
+        console.log(characters[i]);
+        let port = characters[i].port;
+
+        let playerContainer = document.createElement("div");
+        playerContainer.classList.add("player-data-container");
+        playerContainer.setAttribute("id", `player${(characters[i].playerIndex + 1)}-data-container`);
+
+        let playerSlot = document.createElement("div");
+        playerSlot.classList.add("player-slot-container");
+        let slotIcon = document.createElement("img");
+        slotIcon.setAttribute("src", `../stocks/${characters[i].name}/${characters[i].icon}`);
+        slotIcon.classList.add("slot-icon");
+        slotIcon.setAttribute("id", `slot-icon-${port}`);
+        playerSlot.appendChild(slotIcon);
+        
+        let slotTitle = document.createElement("h1");
+        slotTitle.classList.add("slot-title");
+        slotTitle.setAttribute("id", `slot-title-${port}`);
+        slotTitle.appendChild(document.createTextNode(`Player ${port}`));
+        playerSlot.appendChild(slotTitle);
+
+        playerContainer.appendChild(playerSlot);
+
+        let conversionList = document.createElement("div");
+        conversionList.classList.add("conversions-lists");
+        conversionList.setAttribute("id", `player${port}-conversions-list`)
+        playerContainer.appendChild(conversionList);
+
+        container.appendChild(playerContainer);
+
     }
 }
