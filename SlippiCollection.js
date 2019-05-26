@@ -239,6 +239,14 @@ module.exports = {
     getMatchConversions: function (stats) {
         let match = createMatchConversions(stats);
         return match;
+    },
+    getInputCounts: function(stats){
+        let counts = getPlayerInputCounts(stats.overall);
+        return counts;
+    },
+    getConversionRatios: function(stats){
+        let ratios = getPlayerConversionRatio(stats.overall);
+        return ratios;
     }
 }
 
@@ -601,4 +609,31 @@ function createMatchConversions(stats) {
         }
     }
     return match;
+}
+
+function getPlayerInputCounts(overall){
+    let players = [];
+    overall.forEach(index => {
+        let player = {
+            playerIndex: index.playerIndex,
+            input_count: index.inputsPerMinute.count,
+        }
+        players.push(player);
+    });
+    return players
+}
+
+function getPlayerConversionRatio(overall){
+    let players = [];
+    overall.forEach(index => {
+        let rawRatio = index.successfulConversions.ratio;
+        let ratio = Math.round(rawRatio * 100, 0);
+        let player = {
+            playerIndex: index.playerIndex,
+            conversion_ratio: ratio,
+            raw_ratio: rawRatio,
+        }
+        players.push(player);
+    });
+    return players;
 }
